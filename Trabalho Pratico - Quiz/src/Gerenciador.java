@@ -50,7 +50,8 @@ public class Gerenciador {
         System.out.println("1 - Iniciar Quiz\n"+
                             "2 - Cadastrar jogador\n"+
                             "3 - Editar informações do jogador\n"+
-                            "4 - Sair\n");
+                            "4 - Ver pontuação\n"+ //Ou ranking
+                            "5 - Sair\n");
 
         try{
             int opcao = sc.nextInt();
