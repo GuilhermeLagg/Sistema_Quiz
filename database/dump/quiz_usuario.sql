@@ -18,30 +18,31 @@ USE `quiz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pergunta`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `pergunta`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pergunta` (
-  `id_pergunta` int NOT NULL AUTO_INCREMENT,
-  `enunciado` text,
-  `dificuladade` int DEFAULT NULL,
-  `id_categoria` int DEFAULT NULL,
-  PRIMARY KEY (`id_pergunta`),
-  KEY `fk_categoria` (`id_categoria`),
-  CONSTRAINT `fk_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `usuario` (
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `data_cadastro` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pergunta`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `pergunta` WRITE;
-/*!40000 ALTER TABLE `pergunta` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pergunta` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'Caio','caio@gmail.com','123','2026-06-24 21:11:29'),(2,'Maria','maria@gmail.com','123','2026-06-24 21:11:29'),(3,'Guilherme','guilherme@gmail.com','123','2026-06-24 21:11:29');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-24 20:11:52
+-- Dump completed on 2026-06-24 21:11:53

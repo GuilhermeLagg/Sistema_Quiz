@@ -18,29 +18,35 @@ USE `quiz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuario`
+-- Table structure for table `resposta`
 --
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS `resposta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `nome` text NOT NULL,
-  `email` text NOT NULL,
-  `senha` varchar(20) NOT NULL,
-  `data_cadastro` date NOT NULL,
-  PRIMARY KEY (`id_usuario`)
+CREATE TABLE `resposta` (
+  `id_resposta` int NOT NULL AUTO_INCREMENT,
+  `correta` tinyint(1) NOT NULL,
+  `id_partida` int NOT NULL,
+  `id_pergunta` int NOT NULL,
+  `id_alternativa` int NOT NULL,
+  PRIMARY KEY (`id_resposta`),
+  KEY `fk_resposta_partida` (`id_partida`),
+  KEY `fk_resposta_pergunta` (`id_pergunta`),
+  KEY `fk_resposta_alternativa` (`id_alternativa`),
+  CONSTRAINT `fk_resposta_alternativa` FOREIGN KEY (`id_alternativa`) REFERENCES `alternativa` (`id_alternativa`),
+  CONSTRAINT `fk_resposta_partida` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id_partida`),
+  CONSTRAINT `fk_resposta_pergunta` FOREIGN KEY (`id_pergunta`) REFERENCES `pergunta` (`id_pergunta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Dumping data for table `resposta`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `resposta` WRITE;
+/*!40000 ALTER TABLE `resposta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `resposta` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-24 20:11:52
+-- Dump completed on 2026-06-24 21:11:53

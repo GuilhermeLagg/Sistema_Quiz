@@ -18,30 +18,31 @@ USE `quiz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `alternativa`
+-- Table structure for table `partida`
 --
 
-DROP TABLE IF EXISTS `alternativa`;
+DROP TABLE IF EXISTS `partida`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `alternativa` (
-  `id_alternativa` int NOT NULL,
-  `texto` varchar(200) DEFAULT NULL,
-  `correta` varchar(20) DEFAULT NULL,
-  `id_pergunta` int DEFAULT NULL,
-  PRIMARY KEY (`id_alternativa`),
-  KEY `id_pergunta` (`id_pergunta`),
-  CONSTRAINT `alternativa_ibfk_1` FOREIGN KEY (`id_pergunta`) REFERENCES `pergunta` (`id_pergunta`)
+CREATE TABLE `partida` (
+  `id_partida` int NOT NULL AUTO_INCREMENT,
+  `data_partida` datetime DEFAULT CURRENT_TIMESTAMP,
+  `pontuacao` int DEFAULT '0',
+  `quantidade_acertos` int DEFAULT '0',
+  `id_usuario` int NOT NULL,
+  PRIMARY KEY (`id_partida`),
+  KEY `fk_partida_usuario` (`id_usuario`),
+  CONSTRAINT `fk_partida_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `alternativa`
+-- Dumping data for table `partida`
 --
 
-LOCK TABLES `alternativa` WRITE;
-/*!40000 ALTER TABLE `alternativa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `alternativa` ENABLE KEYS */;
+LOCK TABLES `partida` WRITE;
+/*!40000 ALTER TABLE `partida` DISABLE KEYS */;
+/*!40000 ALTER TABLE `partida` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-24 20:11:52
+-- Dump completed on 2026-06-24 21:11:53
