@@ -34,9 +34,9 @@ CREATE TABLE `resposta` (
   KEY `fk_resposta_partida` (`id_partida`),
   KEY `fk_resposta_pergunta` (`id_pergunta`),
   KEY `fk_resposta_alternativa` (`id_alternativa`),
-  CONSTRAINT `fk_resposta_alternativa` FOREIGN KEY (`id_alternativa`) REFERENCES `alternativa` (`id_alternativa`),
-  CONSTRAINT `fk_resposta_partida` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id_partida`),
-  CONSTRAINT `fk_resposta_pergunta` FOREIGN KEY (`id_pergunta`) REFERENCES `pergunta` (`id_pergunta`)
+  CONSTRAINT `fk_resposta_alternativa` FOREIGN KEY (`id_alternativa`) REFERENCES `alternativa` (`id_alternativa`) ON DELETE CASCADE,
+  CONSTRAINT `fk_resposta_partida` FOREIGN KEY (`id_partida`) REFERENCES `partida` (`id_partida`) ON DELETE CASCADE,
+  CONSTRAINT `fk_resposta_pergunta` FOREIGN KEY (`id_pergunta`) REFERENCES `pergunta` (`id_pergunta`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-24 21:11:53
+-- Dump completed on 2026-06-28 16:41:40

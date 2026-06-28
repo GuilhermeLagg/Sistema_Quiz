@@ -28,7 +28,7 @@ CREATE TABLE `usuario` (
   `id_usuario` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `senha` varchar(255) NOT NULL,
+  `senha` varchar(45) NOT NULL,
   `data_cadastro` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
@@ -41,7 +41,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Caio','caio@gmail.com','123','2026-06-24 21:11:29'),(2,'Maria','maria@gmail.com','123','2026-06-24 21:11:29'),(3,'Guilherme','guilherme@gmail.com','123','2026-06-24 21:11:29');
+INSERT INTO `usuario` VALUES (1,'Caio','caio@gmail.com','123','2026-06-28 16:39:54'),(2,'Maria','maria@gmail.com','123','2026-06-28 16:39:54'),(3,'Guilherme','guilherme@gmail.com','123','2026-06-28 16:39:54');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-24 21:11:53
+-- Dump completed on 2026-06-28 16:41:40

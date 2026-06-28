@@ -32,7 +32,7 @@ CREATE TABLE `partida` (
   `id_usuario` int NOT NULL,
   PRIMARY KEY (`id_partida`),
   KEY `fk_partida_usuario` (`id_usuario`),
-  CONSTRAINT `fk_partida_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+  CONSTRAINT `fk_partida_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-24 21:11:53
+-- Dump completed on 2026-06-28 16:41:40
